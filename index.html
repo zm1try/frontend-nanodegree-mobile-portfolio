@@ -108,7 +108,18 @@
           </li>
 
           <li>
-            <img style="width: 100px;" src="imf/pizzeria-100px.jpg">
+            <img src="imf/pizzeria-100px.jpg"> //<script>
+                function logCRP() {
+                  var t = window.performance.timing,
+                  dcl = t.domContentLoadedEventStart - t.domLoading,
+                  complete = t.domComplete - t.domLoading;
+                  var stats = document.getElementById("crp-stats");
+                  stats.textContent = 'DCL: ' + dcl + 'ms, onload: ' + complete + 'ms';
+                }
+                window.addEventListener("load", function(event) {
+                  logCRP();
+                });
+              </script>
             <a href="views/pizza.html">Cam's Pizzeria</a>
             <p>Who wants a performant pizza?</p>
           </li>
